@@ -8,22 +8,28 @@ void gotoxy(int x, int y)
 }
 void draw_ship(int x, int y)
 {
+	gotoxy(x, y);
 	printf(" <-0-> ");
 }
+void erase_ship(int x, int y)
+{
+	gotoxy(x, y);
+	printf("       ");
+}
+
 int main()
 {
 	char ch = ' ';
 	int x = 38, y = 20;
-	gotoxy(x, y);
 	draw_ship(x, y);
 	do {
 		if (_kbhit()) {
 			ch = _getch();
-			gotoxy(x, y);
-			if (ch == 'a') { draw_ship(--x, y); }
-			if (ch == 'd') { draw_ship(++x, y); }
-			if (ch == 'w') { draw_ship(x, --y); }
-			if (ch == 's') { draw_ship(x, ++y); }
+			
+			if (ch == 'a'&&x>0) { erase_ship(x, y); draw_ship(--x, y); }
+			if (ch == 'd'&&x<75) { erase_ship(x, y); draw_ship(++x, y); }
+			if (ch == 'w'&&y>0) { erase_ship(x, y); draw_ship(x, --y); }
+			if (ch == 's'&&y<80) { erase_ship(x, y); draw_ship(x, ++y); }
 			fflush(stdin);
 		}
 		Sleep(100);
