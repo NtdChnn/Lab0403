@@ -32,7 +32,7 @@ int main()
 			if (ch == 's'&&y<80) { erase_ship(x, y); draw_ship(x, ++y); }
 			fflush(stdin);
 		}
-		Sleep(100);
+		Sleep(500);
 	} while (ch != 'x');
 	return 0;
 }
