@@ -27,9 +27,9 @@ int main()
 			ch = _getch();
 			
 			if (ch == 'a'&&x>0) { erase_ship(x, y); draw_ship(--x, y); }
-			if (ch == 'd'&&x<75) { erase_ship(x, y); draw_ship(++x, y); }
+			if (ch == 'd'&&x<73) { erase_ship(x, y); draw_ship(++x, y); }
 			if (ch == 'w'&&y>0) { erase_ship(x, y); draw_ship(x, --y); }
-			if (ch == 's'&&y<80) { erase_ship(x, y); draw_ship(x, ++y); }
+			if (ch == 's') { erase_ship(x, y); draw_ship(x, ++y); }
 			fflush(stdin);
 		}
 		Sleep(500);
